@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enquiries</title>
+
+    <style>
+        body {
+            background-color: #444;
+            
+          
+            
+        }
+
+        .contact-wrapper {
+            max-width: 450px;
+            margin: 60px auto;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.2);
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        label {
+            font-weight: bold;
+            margin-top: 12px;
+            display: block;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 12px;
+            margin-top: 5px;
+            border: 1px solid #bbb;
+            border-radius: 8px;
+            font-size: 15px;
+        }
+
+        textarea {
+            resize: none;
+        }
+
+        .btn-group {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 18px;
+        }
+
+        button {
+            padding: 12px 18px;
+            border: none;
+            font-size: 15px;
+            cursor: pointer;
+            border-radius: 8px;
+        }
+
+        .submit-btn {
+            background-color: #007bff;
+            color: white;
+        }
+
+        .reset-btn {
+            background-color: #ccc;
+        }
+
+        button:hover {
+            opacity: 0.85;
+        }
+        
+        .tabs a {
+            color: blue;
+            
+            padding: 10px 15px;
+            text-decoration: none;
+            
+        }
+        
+    </style>
+
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+</head>
+<body>
+
+  <nav class="tabs" style="color: blue; background-color: white">
+  <a href="index.html">Home</a>
+  <a href="Home.html">Camira</a>
+  <a href="Services.html">Services</a>
+  <a href="Contact Us.html">Contact Us</a>
+  <a href="Articles.html">Articles</a>
+  <a href="About Us.html">About Us</a>
+
+    </nav>
+
+<div class="contact-wrapper">
+    <h2>Enquiries</h2>
+    <form method="POST" action="https://formsubmit.co/Info1@camira.co.za">
+        
+        <!-- FormSubmit Options -->
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_subject" value="Website Enquiry">
+        <input type="hidden" name="_next" value="https://yourwebsite.co.za/thank-you.html">
+
+        <!-- Visible Fields -->
+        <label for="name">Name</label>
+        <input type="text" name="name" id="name" required>
+
+        <label for="email">Email</label>
+        <input type="email" name="email" id="email" required>
+
+        <label for="message">Message</label>
+        <textarea name="message" id="message" rows="4" required></textarea>
+
+        <div class="btn-group">
+            <button type="submit" class="submit-btn">Send Message</button>
+            <button type="reset" class="reset-btn">Reset</button>
+        </div>
+    </form>
+</div>
+
+ <div class="whatsapp-btn-container;" style="position: fixed; bottom: 20px; right: 20px; z-index: 1000; font-size: 18px;">
+                                <a href="https://wa.me/27603832046" target="_blank" class="whatsapp-btn">
+                                    <i class="fab fa-whatsapp" style="color: green;"></i>
+                                    <span class="whatsapp-text"; style="color: white">Chat With Us</span>
+                                </a>
+
+                            </div>
+
+                           <div style="text-align: center;">
+  <iframe
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3594.1710766809483!2d28.28160837376158!3d-25.731855544900487!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1e956013cf38a535%3A0x51ab9311b3a860e7!2s194%20James%20Dr%2C%20Silverton%2C%200184!5e0!3m2!1sen!2sza!4v1761479617300!5m2!1sen!2sza"
+    width="900" height="450"
+    style="border:0;"
+    allowfullscreen=""
+    loading="lazy"
+    referrerpolicy="no-referrer-when-downgrade">
+  </iframe>
+</div>
+
+
+
+</body>
+</html>

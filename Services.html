@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Service</title>
+<style>
+    body {
+        background-color: navy;
+      
+        color: white;
+        margin: 0;
+        padding: 0;
+    }
+
+    /* Tabs styling */
+    section {
+    display: flex;
+    gap: 15px;
+  }
+  .tabs a {
+            color: blue;
+            
+            padding: 10px 15px;
+            text-decoration: none;
+           
+        }
+
+    /* Services container */
+    .services-icons {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+        margin: 30px auto;
+        max-width: 700px;
+    }
+
+    .services-icons img {
+        width: 130px;
+        height: 130px;
+        border: 5px solid gray;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: transform 0.2s ease;
+
+    }
+
+    .services-icons img:hover {
+        transform: scale(1.05);
+    }
+
+    /* Label box */
+    #service-label-box {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: #f0f0f0;
+        color: black;
+        border: 3px solid gray;
+        border-radius: 10px;
+        padding: 20px;
+        max-width: 800px;
+        margin: 20px auto;
+        text-align: center;
+        gap: 10px;
+        min-height: 120px;
+    }
+
+    #service-label-box strong {
+        font-size: 20px;
+    }
+
+    /* Checkbox services */
+    .checkbox-container {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin: 5px 0;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .checkbox-container label {
+        color: white;
+    }
+
+    h2 {
+        text-align: center;
+        border-style: outset;
+        border-radius: 20px;
+        width: 200px;
+        margin: 20px auto;
+        padding: 5px;
+    }
+
+    @media (max-width: 600px) {
+        .services-icons {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .services-icons img {
+            width: 120px;
+            height: 160px;
+        }
+    }
+</style>
+</head>
+<body>
+
+<!-- Navigation tabs -->
+<nav class="tabs" style="background-color: white">
+  <a href="index.html">Home</a>
+  <a href="Home.html">About Us</a>
+  <a href="Services.html">Services</a>
+  <a href="Contact Us.html">Contact Us</a>
+  <a href="Articles.html">Articles</a>
+</nav>
+
+<!-- Section title -->
+<h1 style="text-align:center; margin-top:30px;">Our Services</h1>
+<p style="text-align:center;">Click an icon below to see details</p>
+
+<!-- Service icons -->
+<div class="services-icons">
+    <img src="pic05.png" alt="Monthly Bookkeeping" onclick="showLabel('pic05.png')">
+    <img src="pic06.png" alt="Financial Statements" onclick="showLabel('pic06.png')">
+    <img src="pic08.png" alt="Auditing" onclick="showLabel('pic08.png')">
+    <img src="pic07.png" alt="SARS Services" onclick="showLabel('pic07.png')">
+    <img src="pic09.png" alt="Tax Guidance" onclick="showLabel('pic09.png')">
+    <img src="pic10.png" alt="Statutory Services" onclick="showLabel('pic10.png')">
+    <img src="pic12.png" alt="Liquidations" onclick="showLabel('pic12.png')">
+    <img src="pic11.png" alt="Forensic Investigations" onclick="showLabel('pic11.png')">
+</div>
+
+<!-- Single label box -->
+<div id="service-label-box">
+    <strong id="service-title">Select a service</strong>
+    <span id="service-text">Click an icon above to see details.</span>
+</div>
+
+<!-- Checkbox selection -->
+<div style="display: flex; flex-direction: column; font-size: 18px; text-align: center; max-width: 800px; margin: 0 auto;">
+    <div class="checkbox-container">
+        <input type="checkbox" class="service" value="500" id="MonthlyBookkeeping">
+        <label for="MonthlyBookkeeping">Monthly Bookkeeping - R500</label>
+    </div>
+    <div class="checkbox-container">
+        <input type="checkbox" class="service" value="3000" id="PreparationFinancialStatements">
+        <label for="PreparationFinancialStatements">Preparation of Financial Statements - R3000</label>
+    </div>
+    <div class="checkbox-container">
+        <input type="checkbox" class="service" value="2000" id="Audit">
+        <label for="Audit">Auditing - R2000</label>
+    </div>
+    <div class="checkbox-container">
+        <input type="checkbox" class="service" value="1500" id="SARS">
+        <label for="SARS">Services pertaining to SARS - R1500</label>
+    </div>
+    <div class="checkbox-container">
+        <input type="checkbox" class="service" value="2500" id="TaxGuidance">
+        <label for="TaxGuidance">Tax Guidance - R2500</label>
+    </div>
+    <div class="checkbox-container">
+        <input type="checkbox" class="service" value="3500" id="StatutoryServices">
+        <label for="StatutoryServices">Statutory Services - R3500</label>
+    </div>
+    <div class="checkbox-container">
+        <input type="checkbox" class="service" value="4000" id="Liquidations">
+        <label for="Liquidations">Assistance with Liquidations - R4000</label>
+    </div>
+    <div class="checkbox-container">
+        <input type="checkbox" class="service" value="6000" id="ForensicInvestigations">
+        <label for="ForensicInvestigations">Forensic Investigations - R6000</label>
+    </div>
+</div>
+
+<h2>Total: R<span id="total">0</span></h2>
+
+<script>
+const services = document.querySelectorAll('.service');
+const totalElement = document.getElementById('total');
+
+function updateTotal() {
+    let total = 0;
+    services.forEach(service => {
+        if (service.checked) total += parseInt(service.value);
+    });
+    totalElement.textContent = total;
+}
+services.forEach(service => service.addEventListener('change', updateTotal));
+
+// Service info mapping
+const servicesInfo = {
+    'pic05.png': {
+        title: 'Monthly Bookkeeping',
+        text: `Monthly accounting involves collecting invoices, bills, and documents.
+        We prepare monthly or bi-monthly Income Statements, Balance Sheets, and Cash Flow Statements.
+        Includes calculating VAT and monthly PAYE amounts.
+        Preparation of budgets and business plans.`
+    },
+    'pic06.png': {
+        title: 'Preparation of Financial Statements',
+        text: `Preparation in compliance with IFRS.
+Preparation in accordance with the Companies Act.
+May include Audited, Independently Reviewed, or Compilation Financial Statements.`
+    },
+    'pic08.png': {
+        title: 'Auditing',
+        text: `We perform Statutory Audits as required by the Company’s Act, Act 61 of 1973. We follow the guidance of the International Auditing Standards (IAS). We also perform voluntary Audits to provide to you, as the business owner reasonable assurance on the accuracy of the reflection of your business on the Financial Statements.
+Request for specific audit work will also be performed, e.g. Internal Controls Audit.
+We perform Health and Safety Audits in accordance to the relevant legislation.
+Law Society audits
+We report to The Law Society of South Africa in terms of rule 70 of the rules of the Law Society and the Attorney’s Fidelity Fund on lawyer trust accounts.`
+    },
+    'pic07.png': {
+        title: 'Services pertaining to SARS',
+        text: ` Registrations – please see the Registrations section.
+Calculating the VAT amounts that are due.
+Calculating the monthly PAYE amounts that need to be paid.
+Filing all necessary SARS returns.
+Processing payments in the system to allow clients to authorize payments, even from the ease of their mobile devices.
+Engaging in negotiations with SARS on behalf of clients to achieve a settlement and lower the Income Tax, Employee Tax, or VAT owed to SARS.
+Challenging incorrect Assessments.
+Registrations
+Income Tax registrations,
+Employee Tax registrations (PAYE),
+Value Added Tax registrations (VAT),
+Application for Tax Exemption as a Public Benefit Organisation,
+Section 18A registrations,
+Acquiring Import and Export permits,
+Workmen’s Compensation (COIDA),
+UIF – Unemployment Insurance Fund,
+CIDB – Construction Industry Development Board.
+`
+    },
+    'pic09.png': {
+        title: 'Tax Guidance',
+        text: `We help structure all affairs to achieve the best possible tax position. This guarantees tax savings while remaining compliant with the law. Our team advises clients on the tax consequences of their actions and provides practical solutions.
+Management Consultation
+We offer this service upon request. Clients can subscribe to our service, where we analyze business data on a monthly basis. It is crucial for clients to regularly assess their company's status. Prevention is preferable to remedy. Through analysis, specific formulas, and forecasts, we deliver insights into your business's current condition and offer suggestions for enhancing your results. We also provide reasonable predictions regarding the impact of your actions or inactions.
+Please be aware that we cannot serve as your auditor while also providing managerial advice and assisting with managerial decisions.
+Divorce Disputes
+We possess extensive knowledge of family law. Our unique combination of legal and accounting/audit expertise allows us to assist you in preparing your file for your lawyer to use in court. This approach saves our clients significant costs, as they provide a well-prepared file to their lawyer. Consequently, minimal consultation is required since all facts are organized logically. Our hourly rates for file preparation are very competitive. We ensure that the details regarding financial positions and any financial needs are accurate and comprehensive. As an audit firm, we can express an audit opinion on the figures presented in the financial reports.
+Parenting Plans and Maintenance Reconciliations
+We provide independent assistance in creating parenting plans. Our team has extensive knowledge and experience in all aspects of parenting plans. We also have access to psychological support if necessary. We believe that a parenting plan should be tailored to meet the needs and capabilities of both parents while prioritizing the child's best interests.
+We assist in calculating fair maintenance obligations.
+`
+    },
+    'pic10.png': {
+        title: 'Statutory Services',
+        text: `Registration of Companies, Non-Profit Companies, and External Companies.
+Issuing Shares, Transferring Shares, and replacing lost Share Certificates.
+Compilation and/or updating of the Combined Company Register in compliance with the Companies Act.
+Preparation of the required minutes for Directors and Shareholders meetings in accordance with the Companies Act.
+Changes in Directors, Name Changes, and Address Changes.
+Formation of Trusts
+Trusts are established and tailored to meet each individual's specific needs. Our goal is not only to help you manage your affairs in the most tax-efficient manner but also to ensure that the trust is designed to address your family's unique requirements. We place a strong emphasis on safeguarding minors.
+Other
+Filing Annual declarations with the Office of the Workmen’s Compensation Commissioner and
+Submitting Employment Equity reports.
+B-BBEE related services
+Conducting B-BBEE Audits and issuing B-BBEE certificates.
+Providing explanatory letters to clients regarding the B-BBEE recognition level of entities that only need to submit a sworn affidavit.
+B-BBEE Advisory services, which include but are not limited to:
+Informing the client of any updates in the BEE codes or their interpretations;
+Clarifying the assessment tools;
+Detailing the necessary documents required for assessment;
+Identifying target elements;
+Spotting areas of concern;
+Creating a customized BEE strategy to achieve the desired level;
+Advising the client on actions needed to reach that level;
+Reporting to the client on progress towards achieving set goals and targets;
+Modifying the strategy as needed;
+Addressing any urgent issues;
+Reporting on the annual BEE rating, identifying successes and failures, and providing proposed solutions to address shortfalls;
+Setting targets for the next BEE rating;
+Formulating an effective strategy to achieve the desired outcome for the upcoming BEE rating
+`
+    },
+    'pic12.png': {
+        title: 'Assistance with Liquidations',
+        text: `We strive to prevent a position where a Company has to liquidate. We apply all measures and consider liquidation as the last resort. Once a liquidation is inevitable we guide you through the process to ensure a smooth as possible ending.
+Assistance with Business rescue
+As part of our commitment to secure the continuance of a business we provide the complete range of Business Rescue services in conjunction with a well-known legal firm established already in 1929.
+Assistance with Mergers, take overs, Buy-outs and Due diligence investigations
+We provide the full solution for any Mergers, Acquisitions and take overs. This is a highly specialised service. We are supported by Legal teams and professionals with Human Resources and Labour Law experience to ensure a problem free Merger, Acquisition or Take-over. We take full responsibility of the due diligence process to ensure you indeed purchase what you think you purchase.
+Health and Safety and Human Resources solutions
+We provide you with assistance varying from employment to retrenchment of employees. We perform Health and Safety Audits and risk assessments. Assist with general policies, flow diagrams and organograms. We draft all your relevant manuals, e.g. Health and Safety Manual, Industrial Relations Manual, customised Standard Operating procedures. We provide as part of Health and Safety Audits sign surveys.
+Estates
+We perform all the services needed for Deceased and Insolvent Estates.
+`
+    },
+    'pic11.png': {
+        title: 'Forensic Investigations',
+        text: `We conduct Forensic Investigations through procedures that are discussed with the client in advance. Our procedures are tailored to fulfill the client's requirements, such as incorporating an element of surprise or conducting an open investigation that all employees are informed about.
+We aid in the initial detection of fraud within a company by offering the following services:
+Measures to protect the business's assets;
+Preserving physical and IT evidence for use in internal or criminal prosecutions;
+Providing experts to interview staff;
+Providing experts to debrief innocent employees and address all labor-related matters, such as immediate resignations;
+We coordinate VIP protection when necessary and upon request by utilizing our specialized subcontractors.
+`
+    }
+};
+
+// Update label box on icon click
+function showLabel(imgSrc) {
+    const title = document.getElementById('service-title');
+    const text = document.getElementById('service-text');
+
+    if (servicesInfo[imgSrc]) {
+        title.textContent = servicesInfo[imgSrc].title;
+        text.textContent = servicesInfo[imgSrc].text;
+    }
+}
+</script>
+
+</body>
+</html>

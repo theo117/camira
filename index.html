@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Camira</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      
+      
+    }
+
+    /* Background image */
+    #bg-image {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('pic01.png'); /* Replace with your image */
+      background-size: cover;
+      background-position: center;
+      z-index: -2; /* behind everything */
+    }
+
+    /* Particles container */
+    #particles-js {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      z-index: -1; /* above background, below overlay images */
+      transition: transform 0.1s ease-out; /* for smooth movement */
+    }
+
+    /* Overlay box with your two images */
+    .overlay-box {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      display: flex;
+      gap: 10px;
+      background: white;
+      border-radius: 20px;
+      justify-content: center;
+      align-items: center;
+      padding: 15px 30px;
+      z-index: 1; /* on top of particles and background */
+    }
+
+    .overlay-box img {
+      display: block;
+      width: auto;
+      border-radius: 10px;
+    }
+
+
+  </style>
+
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+
+<body>
+
+  <!-- Background -->
+  <div id="bg-image"></div>
+
+  <!-- Particles -->
+  <div id="particles-js"></div>
+
+  <!-- Overlay images -->
+  <div class="overlay-wrapper">
+  <div class="overlay-box">
+    <img src="pic03.png" height="250px" width="200px">
+    <img src="pic02.png" height="150px" width="200px">
+  </div>
+  </div>
+      <style>
+  section {
+    display: flex;
+    gap: 15px;
+  }
+  .tabs a {
+            color: blue;
+            
+            padding: 10px 15px;
+            text-decoration: none;
+           
+        }
+</style>
+
+    <nav class="tabs" style="color: blue; background-color: white">
+  <a href="index.html">Home</a>
+  <a href="Home.html">Camira</a>
+  <a href="Services.html">Services</a>
+  <a href="Contact Us.html">Contact Us</a>
+  <a href="Articles.html">Articles</a>
+  <a href="About Us.html">About Us</a>
+
+    </nav>
+
+  <!-- Particles.js Library -->
+  <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
+
+  <!-- Initialize particles with hover interaction -->
+  <script>
+    particlesJS("particles-js", {
+      "particles": {
+        "number": { "value": 200, "density": { "enable": true, "value_area": 800 } },
+        "color": { "value": "#ffffff" },
+        "shape": { "type": "circle" },
+        "opacity": { "value": 0.7 },
+        "size": { "value": 3 },
+        "line_linked": { "enable": true, "distance": 150, "color": "#ffffff", "opacity": 0.5, "width": 1 },
+        "move": { "enable": true, "speed": 2, "direction": "none", "random": true, "straight": false }
+      },
+      "interactivity": {
+        "detect_on": "canvas",
+        "events": {
+          "onhover": { "enable": true, "mode": ["grab","repulse"] },
+          "onclick": { "enable": true, "mode": "push" }
+        },
+        "modes": {
+          "grab": { "distance": 140, "line_linked": { "opacity": 1 } },
+          "repulse": { "distance": 100 },
+          "push": { "particles_nb": 4 }
+        }
+      },
+      "retina_detect": true
+    });
+
+    // Move the entire particles container subtly with the mouse
+    const particlesContainer = document.getElementById('particles-js');
+    document.addEventListener('mousemove', (e) => {
+      const x = (e.clientX / window.innerWidth - 0.5) * 100; // horizontal movement
+      const y = (e.clientY / window.innerHeight - 0.5) * 100; // vertical movement
+      particlesContainer.style.transform = `translate(${x}px, ${y}px)`;
+    });
+  </script>
+
+</body>
+
+<footer class="footer" style="color: white; text-align: center; margin-top: 550px">
+  <p>&copy; 2025 Camira. All rights reserved. By Teodor</p>
+</footer>
+</html>
